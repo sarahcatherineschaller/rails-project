@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 	delete '/session', to: 'session#destroy'
 
 	get '/classrooms/new', to: 'classrooms#new', as: 'new_classroom'
+	post '/classrooms', to: 'classrooms#create'
+	get '/classrooms', to: 'classrooms#show', as: 'classroom'
+	get '/classrooms', to: 'classrooms#index', as: 'classrooms'
 	
 
 end
