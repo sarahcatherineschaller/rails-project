@@ -1,8 +1,10 @@
 class ClassroomsController < ApplicationController
 	def index 
+
 	end 
 
 	def show 
+		@classroom = Classroom.find_by(id:params[:id])
 	end 
 
 	def new 
@@ -10,5 +12,6 @@ class ClassroomsController < ApplicationController
 	end
 
 	def create 
+		
 	end
 end
