@@ -4,7 +4,7 @@ class ClassroomsController < ApplicationController
 	end 
 
 	def show 
-		@classroom = Classroom.find_by(id:params[:id])
+		@classroom = Classroom
 	end 
 
 	def new 
@@ -13,11 +13,11 @@ class ClassroomsController < ApplicationController
 
 	def create 
 		classroom = Classroom.create(classroom_params)
-		redirect_to classroom_path(classroom)
+		redirect_to user_path(user.classrooms)
 	end
 
 	private 
 	def classroom_params 
-		params.require(:classroom).permit(:subject)
+		params.require(:classroom).permit(:subject, :user_id)
 	end
 end
