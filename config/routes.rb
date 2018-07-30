@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 	get '/classrooms/new', to: 'classrooms#new', as: 'new_classroom'
 	post '/classrooms', to: 'classrooms#create'
 	get '/classrooms/:id', to: 'classrooms#show', as: 'classroom'
-	get '/classrooms', to: 'classrooms#index', as: 'classrooms'
+	get '/classrooms', to: 'classrooms#index'
 	
 
 end
