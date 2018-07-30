@@ -12,6 +12,12 @@ class ClassroomsController < ApplicationController
 	end
 
 	def create 
-		
+		classroom = Classroom.create(classroom_params)
+		redirect_to classroom_path(classroom)
+	end
+
+	private 
+	def classroom_params 
+		params.require(:classroom).permit(:subject)
 	end
 end
