@@ -19,6 +19,18 @@ class UsersController < ApplicationController
 		@user = User.find_by(id:params[:id])
 	end 
 
+	def classrooms_index 
+		@user = User.find(params[:id])
+		@classrooms = @user.classrooms 
+		render template: 'classrooms/index'
+	end 
+
+	def classroom 
+		@user = User.find(params[:id])
+		@classroom = Classroom.find(params[:classroom_id])
+		render template: 'classrooms/show'
+	end
+
 	private 
 	def user_params
 		params.require(:user).permit(:title, :first_name, :last_name, :email, :password)

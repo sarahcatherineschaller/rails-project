@@ -1,10 +1,8 @@
 class ClassroomsController < ApplicationController
 	def index 
-
+		@classrooms = User.find(params[:user_id]).classrooms 
 	end 
-
-	def show 
-		@classroom = Classroom
+		
 	end 
 
 	def new 
@@ -13,8 +11,12 @@ class ClassroomsController < ApplicationController
 
 	def create 
 		classroom = Classroom.create(classroom_params)
-		redirect_to user_path(user.classrooms)
+		redirect_to users_classroom_path(classroom)
 	end
+
+	def show 
+		@classroom = Classroom.find(params[:id])
+	end 
 
 	private 
 	def classroom_params 
