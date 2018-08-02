@@ -19,6 +19,19 @@ class UsersController < ApplicationController
 		@user = User.find_by(id:params[:id])
 	end
 
+	def edit 
+	end 
+
+	def update 
+	end 
+
+	def destroy 
+		@user.destroy 
+		session.delete :user_id 
+		@current_user = nil 
+		redirect_to root_path 
+	end
+
 	private 
 	def user_params
 		params.require(:user).permit(:title, :first_name, :last_name, :email, :password)
