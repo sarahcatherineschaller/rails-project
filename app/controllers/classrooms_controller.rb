@@ -6,6 +6,7 @@ class ClassroomsController < ApplicationController
 
 	def new 
 		@classroom = Classroom.new
+		@user = User.find(params[:user_id])
 	end
 
 	def create 
