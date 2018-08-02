@@ -11,12 +11,12 @@ class ClassroomsController < ApplicationController
 
 	def create 
 		classroom = Classroom.create(classroom_params)
-		redirect_to user_classroom_path(classroom)
+		redirect_to user_classroom_path(:user_id, :id)
 	end
 
 
 	def show 
-		@classroom = Classroom.find(params[:id])
+		
 	end 
 
 	private 
