@@ -11,7 +11,7 @@ class ClassroomsController < ApplicationController
 
 	def create 
 		classroom = Classroom.create(classroom_params)
-		redirect_to user_classroom_path(@user, @classroom)
+		redirect_to user_classroom_path(@user)
 	end
 
 
