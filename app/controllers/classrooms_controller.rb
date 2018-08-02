@@ -6,17 +6,21 @@ class ClassroomsController < ApplicationController
 
 	def new 
 		@classroom = Classroom.new
-		@user = User.find(params[:user_id])
+		@user = current_user
 	end
 
 	def create 
-		classroom = Classroom.create(classroom_params)
-		redirect_to user_classroom_path(@user)
+		classroom = Classroom.new(classroom_params)
+		@user = current_user
+		classroom.user_id = @user.id
+		classroom.save
+		redirect_to user_classroom_path(@user.id, classroom.id)
 	end
 
 
 	def show 
-		
+		@classroom = Classroom.find_by(id:params[:id])
+
 	end 
 
 	private 

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 	root 'users#index'
 	
 	resources :users do 
-		resources :classrooms, only: [:index, :new, :create]
+		resources :classrooms, only: [:index, :new, :create, :show]
 	end
-	resources :classrooms, only: [:show, :edit, :update, :destroy]
+	resources :classrooms, only: [:edit, :update, :destroy]
 
 	get '/login', to: 'session#new', as: 'login'
 	post '/session', to: 'session#create', as: 'session'
