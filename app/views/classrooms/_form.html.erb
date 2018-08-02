@@ -1,6 +1,9 @@
-<%= form_for @classroom do |f| %>
-	<%= f.label :subject %>
-	<%= f.text_field :subject %>
+<%= form_for @classroom.user do |f| %>
+
+	<label>Subject:</label><br>
+
+	<%= f.text_field :subject %></br>
+	<%= f.hidden_field :user_id %>
 
 	<%= f.submit %>
 <% end %>
