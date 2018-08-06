@@ -3,3 +3,12 @@
 
 <br>
 <h2>Student Roster:</h2>
+<% @classroom.students.order(:last_name).each do |student| %>
+	<%= student.last_name %>, <%= student.first_name %>
+	<br>
+<% end %>
+
+<br><br>
+<%= link_to 'Back to home page', root_path %>
+<br><br>
+<%= link_to 'Back to profile page', current_user %>
