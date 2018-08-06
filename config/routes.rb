@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 	end
 	resources :classrooms, only: [:edit, :update, :destroy]
 
-	get '/login', to: 'session#new', as: 'login'
-	post '/session', to: 'session#create', as: 'session'
-	delete '/session', to: 'session#destroy'
+	get '/login', to: 'session#new'
+	post '/login', to: 'session#create'
+	delete '/logout', to: 'session#destroy'
 
 
 end

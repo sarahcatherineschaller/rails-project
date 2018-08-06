@@ -11,5 +11,5 @@
 <% if current_user %>
 	<%= link_to "#{current_user.first_name}'s profile", user_path(current_user) %>
 	<br>
-	<%= link_to "Log Out", session_path, method: 'delete' %>
+	<%= link_to "Log Out", logout_path, method: 'delete' %>
 <% end %>
