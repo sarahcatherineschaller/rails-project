@@ -1,0 +1,17 @@
+<h1>Create a New Student</h1>
+
+<%= form_for @student do |f| %>
+
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
+	<br>
+	<%= f.label :last_name %>
+	<%= f.text_field :last_name %>
+	<br>
+	<%= f.label :grade %>
+	<%= f.text_field :grade %>
+	<br>
+	<%= f.collection_check_boxes :classroom_ids, Classroom.all, :id, :subject %>
+		<br>
+	<%= f.submit %>
+<% end %>

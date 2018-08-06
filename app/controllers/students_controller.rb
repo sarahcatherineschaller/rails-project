@@ -9,10 +9,9 @@ class StudentsController < ApplicationController
 
 	def create 
 		student = Student.new(student_params)
-		@classroom = Classroom.find_by(id:params[:id])
-		student.classroom_id = @classroom.id
+		classroom = Classroom.find_by(id:params[:id])
 		student.save 
-		redirect_to classroom_student_path(@classroom.id, student.id)
+		redirect_to student_path(student)
 	end
 
 	def show 

@@ -3,6 +3,10 @@
 
 <%= link_to 'Create a new classroom', new_user_classroom_path(current_user) %>
 
+<br>
+<br>
+<%= link_to 'Create a new student', new_student_path %>
+
 <p>Classrooms:</p>
 <% current_user.classrooms.each do |classroom| %>
 	<div><%= link_to classroom.subject, user_classroom_path(current_user, classroom.id) %></div>

@@ -1,0 +1,7 @@
+<p>Student Name: <%= @student.first_name %> <%= @student.last_name %></p>
+<p>Grade: <%= @student.grade %></p>
+<p>Classes:<br>
+	<% @student.classrooms.each do |classroom| %>
+		<%= classroom.subject %><br>
+	<% end %>
+</p>
