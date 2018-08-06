@@ -1,0 +1,15 @@
+<h1>Edit Classroom</h1>
+<%= form_for @classroom, url: user_classroom_path do |f| %>
+
+	<%= f.label :subject %>
+	<%= f.text_field :subject %>
+	<br>
+	<%= f.collection_check_boxes :student_ids, Student.all, :id, :full_name %>
+	<br>
+	<%= f.hidden_field :id, value: @user.id %>
+
+	<%= f.submit %>
+<% end %>
+<br><br>
+<%= link_to 'Back to home page', root_path %><br>
+<%= link_to 'Back to profile page', @user %>

@@ -22,8 +22,20 @@ class ClassroomsController < ApplicationController
 		@user = current_user
 		@classroom = Classroom.find_by(id:params[:id])
 		@classroom.user_id = @user.id
-
 	end 
+
+	def edit 
+		@user = current_user
+		@classroom = Classroom.find_by(id:params[:id])
+		@classroom.user_id = @user.id
+	end
+
+	def update 
+		@user = current_user
+		@classroom = Classroom.find_by(id:params[:id])
+		@classroom.update(classroom_params)
+		redirect_to user_classroom_path(@user.id,@classroom.id)
+	end
 
 	private 
 	def classroom_params 

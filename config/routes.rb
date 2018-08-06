@@ -3,10 +3,8 @@ Rails.application.routes.draw do
 	root 'users#index'
 	
 	resources :users do 
-		resources :classrooms, only: [:index, :new, :create, :show]
+		resources :classrooms
 	end
-
-	resources :classrooms, only: [:edit, :update, :destroy]
 	
 	resources :students
 	
