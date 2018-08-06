@@ -1,8 +1,10 @@
 <%= form_for @classroom, url: user_classrooms_path do |f| %>
 
-	<label>Subject:</label><br>
-
-	<%= f.text_field :subject %></br>
+	<%= f.label :subject %>
+	<%= f.text_field :subject %>
+	<br>
+	<%= f.collection_check_boxes :student_ids, Student.all, :id, :full_name %>
+	<br>
 	<%= f.hidden_field :id, value: @user.id %>
 
 	<%= f.submit %>
