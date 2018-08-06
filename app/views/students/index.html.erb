@@ -1,0 +1,9 @@
+<% @students.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
+
+<br>
+<br>
+<%= link_to 'Back to home page', root_path %><br>
+<%= link_to 'Back to profile page', current_user %>

@@ -7,4 +7,8 @@ class Student < ApplicationRecord
 		"#{first_name} #{last_name}"
 	end
 
+	def last_name_first_name
+		"#{last_name}, #{first_name}"
+	end
+
 end

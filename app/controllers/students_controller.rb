@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
 	def index 
-		@students = Classroom.find(params[:classroom_id]).students
+		@students = Student.all
+		@student = Student.find_by(id:params[:id])
 	end 
 
 	def new 
