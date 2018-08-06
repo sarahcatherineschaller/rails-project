@@ -19,7 +19,9 @@ class ClassroomsController < ApplicationController
 
 
 	def show 
+		@user = current_user
 		@classroom = Classroom.find_by(id:params[:id])
+		@classroom.user_id = @user.id
 
 	end 
 

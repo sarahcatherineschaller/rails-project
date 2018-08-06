@@ -1,9 +1,9 @@
-<h1><%= @user.title %> <%= @user.last_name %>'s Classrooms</h1>
+<h1><%= current_user.title %> <%= current_user.last_name %>'s Classrooms</h1>
 
 
-<%= link_to 'Create a new classroom', new_user_classroom_path(@user) %>
+<%= link_to 'Create a new classroom', new_user_classroom_path(current_user) %>
 
 <p>Classrooms:</p>
-<% @user.classrooms.each do |classroom| %>
-	<div><%= classroom.subject %></div>
+<% current_user.classrooms.each do |classroom| %>
+	<div><%= link_to classroom.subject, user_classroom_path(current_user, classroom.id) %></div>
 <% end %>
