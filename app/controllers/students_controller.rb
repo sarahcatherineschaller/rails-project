@@ -20,9 +20,20 @@ class StudentsController < ApplicationController
 	end 
 
 	def edit 
+		@student = Student.find_by(id:params[:id])
 	end 
 
+	def update 
+		@student = Student.find_by(id:params[:id])
+		@student.update(student_params)
+		redirect_to student_path
+	end
+
 	def destroy 
+		@user = current_user
+		@student = Student.find_by(id:params[:id])
+		@student.destroy
+		redirect_to user_path
 	end
 
 	private
