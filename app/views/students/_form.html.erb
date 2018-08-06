@@ -11,7 +11,7 @@
 	<%= f.label :grade %>
 	<%= f.text_field :grade %>
 	<br>
-	<%= f.collection_check_boxes :classroom_ids, Classroom.all, :id, :subject %>
+	<%= f.collection_check_boxes :classroom_ids, current_user.classrooms.all, :id, :subject %>
 		<br>
 	<%= f.submit %>
 <% end %>

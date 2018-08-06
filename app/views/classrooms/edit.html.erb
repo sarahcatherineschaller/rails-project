@@ -11,5 +11,9 @@
 	<%= f.submit %>
 <% end %>
 <br><br>
+
+<%= button_to "Delete Classroom", user_classroom_path, method: :delete %>
+
+<br><br>
 <%= link_to 'Back to home page', root_path %><br>
 <%= link_to 'Back to profile page', @user %>

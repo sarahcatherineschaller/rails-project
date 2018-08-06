@@ -37,6 +37,14 @@ class ClassroomsController < ApplicationController
 		redirect_to user_classroom_path(@user.id,@classroom.id)
 	end
 
+	def destroy
+		@user = current_user
+		@classroom = Classroom.find_by(id:params[:id])
+		@classroom.user_id = @user.id
+		@classroom.destroy
+		redirect_to user_path 
+	end
+
 	private 
 	def classroom_params 
 		params.require(:classroom).permit(:subject, :user_id, student_ids:[])
