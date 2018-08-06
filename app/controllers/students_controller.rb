@@ -1,14 +1,22 @@
 class StudentsController < ApplicationController
 	def index 
+		@students = Classroom.find(params[:classroom_id]).students
 	end 
 
 	def new 
+		@student = Student.new 
 	end
 
 	def create 
+		student = Student.new(student_params)
+		@classroom = Classroom.find_by(id:params[:id])
+		student.classroom_id = @classroom.id
+		student.save 
+		redirect_to classroom_student_path(@classroom.id, student.id)
 	end
 
 	def show 
+		@student = Student.find_by(id:params[:id])
 	end 
 
 	def edit 
