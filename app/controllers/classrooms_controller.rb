@@ -27,6 +27,6 @@ class ClassroomsController < ApplicationController
 
 	private 
 	def classroom_params 
-		params.require(:classroom).permit(:subject, :user_id)
+		params.require(:classroom).permit(:subject, :user_id, student_ids:[])
 	end
 end
