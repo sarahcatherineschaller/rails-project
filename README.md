@@ -1,24 +1,7 @@
-# README
+This is my portfolio project for the Flatiron School. It is a Rails App that allows teachers to create profiles to manage their classrooms and students. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run this app:
+Fork and clone the repository 
+Run bundle install inside the directory
+Start a local server and create a profile!
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
