@@ -10,11 +10,15 @@ class ClassroomsController < ApplicationController
 	end
 
 	def create 
-		classroom = Classroom.new(classroom_params)
+		@classroom = Classroom.new(classroom_params)
 		@user = current_user
-		classroom.user_id = @user.id
-		classroom.save
-		redirect_to user_classroom_path(@user.id, classroom.id)
+		@classroom.user_id = @user.id
+		if @classroom.valid?
+			@classroom.save
+			redirect_to user_classroom_path(@user.id, @classroom.id)
+		else 
+			render 'new'
+		end
 	end
 
 
@@ -33,8 +37,12 @@ class ClassroomsController < ApplicationController
 	def update 
 		@user = current_user
 		@classroom = Classroom.find_by(id:params[:id])
-		@classroom.update(classroom_params)
-		redirect_to user_classroom_path(@user.id,@classroom.id)
+		if @classroom.valid?
+			@classroom.update(classroom_params)
+			redirect_to user_classroom_path(@user.id,@classroom.id)
+		else 
+			render 'edit'
+		end
 	end
 
 	def destroy

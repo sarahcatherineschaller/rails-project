@@ -1,3 +1,15 @@
+<% if @classroom.errors.any? %>
+	<h2>
+		<%= pluralize(@classroom.errors.count, "error") %>
+		prohibited the classroom from being saved:
+	</h2>
+	<ul>
+		<% @classroom.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
 <%= form_for @classroom, url: user_classrooms_path do |f| %>
 
 	<%= f.label :subject %>
