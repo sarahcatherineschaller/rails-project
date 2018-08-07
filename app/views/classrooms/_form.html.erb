@@ -14,10 +14,16 @@
 
 	<%= f.label :subject %>
 	<%= f.text_field :subject %>
-	<br>
+	<br><br>
+	<%= f.label 'Add already existing students to the classroom:' %><br><br>
 	<%= f.collection_check_boxes :student_ids, Student.all, :id, :full_name %>
 	<br>
 	<%= f.hidden_field :id, value: @user.id %>
+	<br>
 
 	<%= f.submit %>
 <% end %>
+
+<br><br>
+<%= link_to 'Back to home page', root_path %><br>
+<%= link_to 'Back to profile page', @user %>

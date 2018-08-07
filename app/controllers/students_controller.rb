@@ -6,13 +6,18 @@ class StudentsController < ApplicationController
 
 	def new 
 		@student = Student.new 
+		@user = current_user
 	end
 
 	def create 
-		student = Student.new(student_params)
-		classroom = Classroom.find_by(id:params[:id])
-		student.save 
-		redirect_to student_path(student)
+		@student = Student.new(student_params)
+		@classroom = Classroom.find_by(id:params[:id])
+		if @student.valid? 
+			@student.save 
+			redirect_to student_path(@student)
+		else 
+			render 'new'
+		end
 	end
 
 	def show 
@@ -25,8 +30,13 @@ class StudentsController < ApplicationController
 
 	def update 
 		@student = Student.find_by(id:params[:id])
-		@student.update(student_params)
-		redirect_to student_path
+		@classroom = Classroom.find_by(id:params[:id])
+		if @student.valid? 
+			@student.update(student_params)
+			redirect_to student_path(@student)
+		else 
+			render 'edit'
+		end
 	end
 
 	def destroy 
