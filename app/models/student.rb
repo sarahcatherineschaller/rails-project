@@ -1,7 +1,5 @@
 class Student < ApplicationRecord
-	validates :first_name, presence: true 
-	validates :last_name, presence: true 
-	validates :grade, presence: true
+	validates :first_name, :last_name, :grade presence: true 
 
 	has_many :student_classrooms
 	has_many :classrooms, through: :student_classrooms
