@@ -15,3 +15,14 @@
 <% current_user.classrooms.each do |classroom| %>
 	<div><%= link_to classroom.subject, user_classroom_path(current_user, classroom.id) %></div>
 <% end %>
+
+
+<br>
+<br>
+<%= link_to 'Back to Profile page', current_user %>
+<br>
+<br>
+<%= link_to 'Back to home page', root_path %>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: 'delete' %>

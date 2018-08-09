@@ -25,5 +25,12 @@
 <% end %>
 
 <br><br>
-<%= link_to 'Back to home page', root_path %><br>
-<%= link_to 'Back to profile page', @user %>
+
+
+<%= link_to 'Back to Profile page', current_user %>
+<br>
+<br>
+<%= link_to 'Back to home page', root_path %>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: 'delete' %>
