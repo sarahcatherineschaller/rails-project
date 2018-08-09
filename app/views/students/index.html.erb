@@ -1,7 +1,17 @@
+<h3>All Students in My Classrooms:</h3>
+<% current_user.students.order(:last_name).each do |student| %>
+	<%= student.full_name %>
+	<br>
+<% end %>
+
+<br>
+<h3>Entire Student Body:</h3>
+
 <% @students.order(:last_name).each do |student| %>
 	<%= link_to student.last_name_first_name, student %>
 	<br>
 <% end %>
+
 
 <br>
 <br>

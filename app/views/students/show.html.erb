@@ -2,7 +2,14 @@
 <p>Grade: <%= @student.grade %></p>
 <p>Classes:<br>
 	<% @student.classrooms.each do |classroom| %>
-		<%= classroom.subject %><br>
+		<%= "#{classroom.subject} -  #{classroom.user.title} #{classroom.user.last_name}"%>
+		<br>
+	<% end %>
+</p>
+<p>Teachers:<br>
+	<% @student.users.each do |teacher| %>
+		<%= "#{teacher.title} #{teacher.last_name}" %>
+		<br>
 	<% end %>
 </p>
 
