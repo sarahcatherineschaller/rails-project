@@ -11,6 +11,24 @@
 	<%= link_to student.last_name_first_name, student %>
 	<br>
 <% end %>
+<br>
+<br>
+<h3>Elementary School</h3>
+<% @students.elementary_school.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
+<h3>Middle School</h3>
+<% @students.middle_school.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
+<h3>High School</h3>
+<% @students.high_school.order(:last_name).each do |student| %>
+	<%= link_to student.last_name_first_name, student %>
+	<br>
+<% end %>
+
 
 
 <br>

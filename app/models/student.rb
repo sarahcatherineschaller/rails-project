@@ -7,6 +7,11 @@ class Student < ApplicationRecord
 	has_many :classrooms, through: :student_classrooms
 	has_many :users, through: :classrooms
 
+	scope :elementary_school, -> { where(grade: [1,2,3,4,5]) }
+	scope :middle_school, -> { where(grade: [6,7,8]) }
+	scope :high_school, -> { where(grade: [9,10,11,12]) }
+
+
 	def full_name
 		"#{first_name} #{last_name}"
 	end
@@ -14,6 +19,7 @@ class Student < ApplicationRecord
 	def last_name_first_name
 		"#{last_name}, #{first_name}"
 	end
+
 
 	private 
 
