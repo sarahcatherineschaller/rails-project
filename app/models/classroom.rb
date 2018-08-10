@@ -4,8 +4,8 @@ class Classroom < ApplicationRecord
 	before_validation :make_title_case
 
 
-	has_many :student_classrooms
-	has_many :students, through: :student_classrooms
+	has_many :schedules
+	has_many :students, through: :schedules
 	belongs_to :user
 
 	private 
