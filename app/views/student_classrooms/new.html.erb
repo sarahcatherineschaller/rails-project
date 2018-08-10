@@ -1,0 +1,23 @@
+<h1>Create a New Class Time</h1>
+
+<%= form_for @student_classroom, url: student_classrooms_path do |f| %>
+	<%= f.label :classtime %>
+	<%= f.datetime_select :classtime %>
+	<br><br>
+	<%= f.label 'What class is this for?' %>
+	<br><br>
+	<%= f.collection_check_boxes :classroom_ids, Classroom.all, :id, :subject %>
+	<br>
+	<%= f.submit %>
+<% end %>
+
+<br><br>
+
+
+<%= link_to 'Back to Profile page', current_user %>
+<br>
+<br>
+<%= link_to 'Back to home page', root_path %>
+<br>
+<br>
+<%= link_to "Log Out", logout_path, method: 'delete' %>
