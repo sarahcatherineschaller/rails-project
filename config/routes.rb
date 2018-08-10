@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 		resources :classrooms
 	end
 	
-	resources :students
-
-	resources :student_classrooms
+	resources :students do 
+		resources :schedules 
+	end
 
 	get '/login', to: 'sessions#new'
 	post '/login', to: 'sessions#create'
