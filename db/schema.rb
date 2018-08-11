@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2018_08_10_220003) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "classroom_id"
+    t.integer "room_number"
+    t.integer "period"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
